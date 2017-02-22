@@ -132,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YbO-Vl-g4b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="843"/>
+            <point key="canvasLocation" x="2190" y="874"/>
         </scene>
         <!--Mi casa-->
         <scene sceneID="tne-QT-ifu">
@@ -246,23 +246,39 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x2A-UK-A2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="844"/>
+            <point key="canvasLocation" x="1181" y="874"/>
         </scene>
         <!--Lista de Lugares-->
         <scene sceneID="1nW-om-vDI">
             <objects>
-                <tableViewController id="Vld-H0-2Gr" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ListalugaresFavoritos" id="Vld-H0-2Gr" customClass="MAListalugaresFavoritos" customModule="APP_MapaReto" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="F1V-OX-lZa">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Cf2-rR-bcM">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="puT-Mg-Rpr" detailTextLabel="enT-x5-Mps" style="IBUITableViewCellStyleSubtitle" id="Cf2-rR-bcM">
                                 <rect key="frame" x="0.0" y="28" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Cf2-rR-bcM" id="FVC-Nc-PhQ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="puT-Mg-Rpr">
+                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="enT-x5-Mps">
+                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -281,12 +297,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uV3-HJ-o41" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1946" y="1592"/>
+            <point key="canvasLocation" x="1991" y="1676"/>
         </scene>
-        <!--View Controller-->
+        <!--Mapa-->
         <scene sceneID="YQy-E3-UAF">
             <objects>
-                <viewController id="rIJ-Gf-lYa" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapalugarFavorito" id="rIJ-Gf-lYa" customClass="MAMapalugarFavorito" customModule="APP_MapaReto" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Tvq-bF-1ja"/>
                         <viewControllerLayoutGuide type="bottom" id="8FS-jq-pzN"/>
@@ -294,13 +310,27 @@
                     <view key="view" contentMode="scaleToFill" id="YAx-5G-CvQ">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="hfa-QK-E06">
+                                <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                            </mapView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="hfa-QK-E06" firstAttribute="top" secondItem="Tvq-bF-1ja" secondAttribute="bottom" id="BtW-70-dYG"/>
+                            <constraint firstAttribute="trailing" secondItem="hfa-QK-E06" secondAttribute="trailing" id="Ia6-Xc-pmv"/>
+                            <constraint firstItem="hfa-QK-E06" firstAttribute="leading" secondItem="YAx-5G-CvQ" secondAttribute="leading" id="h6M-du-Fm8"/>
+                            <constraint firstItem="8FS-jq-pzN" firstAttribute="top" secondItem="hfa-QK-E06" secondAttribute="bottom" id="jth-gG-d2h"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="wNG-Sa-3f2"/>
+                    <navigationItem key="navigationItem" title="Mapa" id="wNG-Sa-3f2"/>
+                    <connections>
+                        <outlet property="myMapViewLugaresFavoritos" destination="hfa-QK-E06" id="EVe-Lf-vew"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gx6-6x-1jx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="1592"/>
+            <point key="canvasLocation" x="2871" y="1676"/>
         </scene>
         <!--Item-->
         <scene sceneID="6Qf-8L-2bZ">
@@ -317,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hd-Mg-de0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1181" y="1592"/>
+            <point key="canvasLocation" x="1181" y="1677"/>
         </scene>
     </scenes>
 </document>
