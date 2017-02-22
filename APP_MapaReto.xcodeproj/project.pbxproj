@@ -15,6 +15,7 @@
 		09519B251E54D544002F73EB /* inicio.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 09519B241E54D544002F73EB /* inicio.jpg */; };
 		09519B281E54E4A1002F73EB /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09519B271E54E4A1002F73EB /* CoreLocation.framework */; };
 		09519B2A1E54F046002F73EB /* MADatosAlfanumericosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09519B291E54F046002F73EB /* MADatosAlfanumericosViewController.swift */; };
+		095959191E5E15FA0066B56A /* ApiTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 095959181E5E15FA0066B56A /* ApiTaskManager.swift */; };
 		09FA46FF1E5B7FA10087204A /* MAListalugaresFavoritos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA46FE1E5B7FA10087204A /* MAListalugaresFavoritos.swift */; };
 		09FA47011E5B7FBB0087204A /* MAMapalugarFavorito.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA47001E5B7FBB0087204A /* MAMapalugarFavorito.swift */; };
 /* End PBXBuildFile section */
@@ -30,6 +31,7 @@
 		09519B241E54D544002F73EB /* inicio.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = inicio.jpg; sourceTree = "<group>"; };
 		09519B271E54E4A1002F73EB /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		09519B291E54F046002F73EB /* MADatosAlfanumericosViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MADatosAlfanumericosViewController.swift; sourceTree = "<group>"; };
+		095959181E5E15FA0066B56A /* ApiTaskManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApiTaskManager.swift; sourceTree = "<group>"; };
 		09FA46FE1E5B7FA10087204A /* MAListalugaresFavoritos.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAListalugaresFavoritos.swift; sourceTree = "<group>"; };
 		09FA47001E5B7FBB0087204A /* MAMapalugarFavorito.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MAMapalugarFavorito.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -67,6 +69,7 @@
 			isa = PBXGroup;
 			children = (
 				09519B121E54D43A002F73EB /* AppDelegate.swift */,
+				095959181E5E15FA0066B56A /* ApiTaskManager.swift */,
 				09FA47021E5B7FC60087204A /* View Controllers */,
 				09519B161E54D43A002F73EB /* Main.storyboard */,
 				09519B241E54D544002F73EB /* inicio.jpg */,
@@ -174,6 +177,7 @@
 				09FA47011E5B7FBB0087204A /* MAMapalugarFavorito.swift in Sources */,
 				09519B131E54D43A002F73EB /* AppDelegate.swift in Sources */,
 				09FA46FF1E5B7FA10087204A /* MAListalugaresFavoritos.swift in Sources */,
+				095959191E5E15FA0066B56A /* ApiTaskManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

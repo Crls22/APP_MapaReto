@@ -16,6 +16,7 @@ class MAMapalugarFavorito: UIViewController {
     // mark: variabls locales
     
     var locationManager = CLLocationManager()
+    var taskManager = APITaskManager.shared
 
     
     @IBOutlet weak var myMapViewLugaresFavoritos: MKMapView!
@@ -27,12 +28,34 @@ class MAMapalugarFavorito: UIViewController {
         
   
         
- 
-     // location manager
+    if customLugarSeleccionado == -1{
+   
+            // location manager
     locationManager.desiredAccuracy = kCLLocationAccuracyBest
     locationManager.delegate = self
     locationManager.requestWhenInUseAuthorization()
     locationManager.startUpdatingLocation()
+    }else{
+    
+    let customLat = NSString(string: taskManager.latitud[customLugarSeleccionado] ["latitud"]!).doubleValue
+       
+    let customLong = NSString(string: taskManager.longitud[customLugarSeleccionado]["longitud"]!).doubleValue
+    
+    let location = CLLocationCoordinate2D(latitude: customLat, longitude: customLong)
+    
+    let region = MKCoordinateRegion(center: location, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+            
+    myMapViewLugaresFavoritos.setRegion(region, animated: true)
+            
+    let customAnnotation = MKPointAnnotation()
+    customAnnotation.coordinate = location
+    customAnnotation.title = taskManager.latitud[customLugarSeleccionado]["latitud"]
+    myMapViewLugaresFavoritos.addAnnotation(customAnnotation)
+            
+            
+            
+        }
+        
         
         
         let longPressGR = UILongPressGestureRecognizer(target: self, action: #selector(self.actionCreaChincheta(_:)))
@@ -82,6 +105,7 @@ class MAMapalugarFavorito: UIViewController {
                     
                 }
                 
+            
                 // creamos la anotacion
                 let annotation = MKPointAnnotation()
                 annotation.coordinate = nuevaCoordenada
@@ -94,7 +118,10 @@ class MAMapalugarFavorito: UIViewController {
                                       "lat": "\(nuevaCoordenada.latitude)",
                                       "long": "\(nuevaCoordenada.longitude)"])
                 
+                APITaskManager.shared.latitud.append(["latitud" : String(nuevaCoordenada.latitude)])
+                APITaskManager.shared.longitud.append(["longitud" : String(nuevaCoordenada.longitude)])
                 
+                APITaskManager.shared.salvarDatos()
                 
             }
         }

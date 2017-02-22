@@ -8,8 +8,8 @@
 
 import UIKit
 
-
-var customLugares = [Dictionary<String, String>()]
+typealias diccionario = [String:String]
+var customLugares = [diccionario]()
 var customLugarSeleccionado = -1
 
 
@@ -18,11 +18,20 @@ var customLugarSeleccionado = -1
 
 
 class MAListalugaresFavoritos: UITableViewController {
+    
+    
+    let taskManager = APITaskManager.shared
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        customLugares.remove(at: 0)
-        customLugares.append(["name" : "Tag-Majal", "lat":"27.175277", "long": "78.042128"])
+        
+         taskManager.cargarDatos()
+        
+        
+      //  customLugares.append(["name" : "Tag-Majal", "lat":"27.175277", "long": "78.042128"])
+        
+       
         
     }
 
@@ -48,7 +57,7 @@ class MAListalugaresFavoritos: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return customLugares.count
+        return taskManager.latitud.count
     }
 
     
@@ -56,11 +65,11 @@ class MAListalugaresFavoritos: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         
-        let dataLugaresModel = customLugares[indexPath.row]
+        //let dataLugaresModel = customLugares[indexPath.row]
         
         
-        cell.textLabel?.text = dataLugaresModel["name"]
-        cell.detailTextLabel?.text = dataLugaresModel["lat"]
+        cell.textLabel?.text = taskManager.latitud[indexPath.row]["latitud"]
+        cell.textLabel?.text = taskManager.longitud[indexPath.row]["longitud"]
         
         // Configure the cell...
 
@@ -68,6 +77,25 @@ class MAListalugaresFavoritos: UITableViewController {
     }
     
 
+    override func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        customLugarSeleccionado = indexPath.row
+        return indexPath
+    }
+    
+    
+    // MARK : NAVITATION
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "muestraMapaSinSeleccion"{
+          customLugarSeleccionado = -1
+        }
+        
+    }
+    
+    
+    
+    
+    
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
